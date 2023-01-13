@@ -5,21 +5,26 @@
   <meta charset="uft-8">
   <title></title>
   <script>
-    function LinksSetColor(color) {
-      var alist = document.querySelectorAll('a');
-      var i = 0;
-      while (i < alist.length) {
-        alist[i].style.color = color;
-        i = i + 1;
+    var Links = {
+      setColor: function (color) {
+        var alist = document.querySelectorAll('a');
+        var i = 0;
+
+        while (i < alist.length) {
+          alist[i].style.color = color;
+          i = i + 1;
+        }
       }
     }
 
-    function BodySetColor(color) {
-      document.querySelector('body').style.color = color;
-    }
+    var Body = {
+      setColor: function (color) {
+        document.querySelector('body').style.color = color;
+      },
 
-    function BodySetBackgroundColor(color) {
-      document.querySelector('body').style.backgroundColor = color;
+      setBackgroundColor: function (color) {
+        document.querySelector('body').style.backgroundColor = color;
+      }
     }
 
     function nightDayHandler(self) {
@@ -29,7 +34,7 @@
         Body.setColor('white');
         self.value = 'day';
         Links.setColor('powderblue');
-      } 
+      }
       else {
         Body.setBackgroundColor('white');
         Body.setColor('black');
